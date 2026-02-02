@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoShip - AI-Powered Code Deployment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 AutoShip</h1>
+            <p class="tagline">AI-powered automatic code analysis and deployment</p>
+        </header>
+
+        <main>
+            <!-- Upload Section -->
+            <section id="upload-section" class="section active">
+                <div class="upload-area" id="dropZone">
+                    <div class="upload-icon">📦</div>
+                    <h2>Drop your code here</h2>
+                    <p>or click to browse</p>
+                    <input type="file" id="fileInput" accept=".zip,.rar,.js,.py,.html,.css,.json,.txt" hidden>
+                    <button class="btn-primary" onclick="document.getElementById('fileInput').click()">
+                        Choose File
+                    </button>
+                    <p class="file-types">Supports: ZIP, RAR, or individual files</p>
+                </div>
+            </section>
+
+            <!-- Analysis Section -->
+            <section id="analysis-section" class="section">
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <h2>Analyzing your code...</h2>
+                    <p id="loading-status">Reading files and detecting framework</p>
+                </div>
+
+                <div class="results" id="results" style="display: none;">
+                    <h2>📊 Analysis Complete</h2>
+                    
+                    <div class="result-card">
+                        <h3>Project Details</h3>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <span class="label">Type:</span>
+                                <span id="projectType">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Framework:</span>
+                                <span id="framework">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Language:</span>
+                                <span id="language">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Entry Point:</span>
+                                <span id="entryPoint">-</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Files Found:</span>
+                                <span id="filesCount">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <h3>🔍 Issues Found</h3>
+                        <div id="issuesList"></div>
+                    </div>
+
+                    <div class="result-card">
+                        <h3>🎯 Deployment Recommendation</h3>
+                        <div class="deployment-rec">
+                            <div class="platform-badge" id="platform">-</div>
+                            <div id="recommendations"></div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn-primary" onclick="deployProject()">
+                            🚀 Deploy Now
+                        </button>
+                        <button class="btn-secondary" onclick="resetUpload()">
+                            Upload Another
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Built with ❤️ using Claude AI</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
